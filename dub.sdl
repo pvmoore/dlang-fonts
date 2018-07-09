@@ -1,0 +1,27 @@
+
+name "fonts"
+platforms "windows"
+	
+buildType "debug" {
+	buildOptions "debugMode" "debugInfo" "alwaysStackFrame" "stackStomping" "warningsAsErrors"
+}
+buildType "release" {
+	buildOptions "releaseMode" "optimize" "inline" "noBoundsCheck" 
+}
+
+configuration "test" {
+	#mainSourceFile "src/test_sdffont.d"
+	targetType "executable"
+	targetName "bin-test-sdf"
+}
+configuration "library" {
+	targetType "library"
+	excludedSourceFiles "src/test_sdffont.d"
+}
+
+# internal
+dependency "maths" version="~master"
+dependency "logging" version="~master"
+dependency "resources" version="~master"
+
+# external
